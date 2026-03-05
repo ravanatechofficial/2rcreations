@@ -1,8 +1,7 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { FeaturedOn } from "@/components/FeaturedOn";
-import { Services } from "@/components/Services";
+import Services from "@/components/Services"; // Corrected import
 
 const HeroSection = () => (
   <section className="container mx-auto flex flex-col md:flex-row items-center justify-center min-h-[calc(100vh-80px)] p-6 gap-12">
