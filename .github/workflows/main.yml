@@ -14,16 +14,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Removed caching to fix the "unable to resolve path" error
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          # Path is now at the root
-          cache-dependency-path: 'package-lock.json'
 
       - name: Install Dependencies and Build
-        # No more cd into a subdirectory
         run: npm install && npm run build
 
       - name: Deploy to Firebase Hosting
@@ -32,5 +29,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CREATIONS_2R }}
           projectId: iir-creations-app
-          # The entryPoint is now the root directory
           entryPoint: ./
