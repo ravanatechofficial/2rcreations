@@ -1,42 +1,44 @@
-
-import { PaintBrush, LayoutTemplate, ShoppingBag } from 'lucide-react';
+import { LayoutTemplate, Paintbrush, ShoppingBag } from 'lucide-react';
 
 const services = [
   {
-    icon: <PaintBrush className="w-10 h-10 text-gold-accent" />,
-    title: 'Concept Album Design',
-    description: 'Fully bespoke album design from scratch, tailored to your unique love story and aesthetic preferences.',
+    icon: <LayoutTemplate size={72} strokeWidth={1} />,
+    title: 'Modern Web Design',
+    description: 'Crafting visually stunning and user-friendly websites that leave a lasting impression. Modern, clean, and built for performance.',
   },
   {
-    icon: <LayoutTemplate className="w-10 h-10 text-gold-accent" />,
-    title: 'Template Customization',
-    description: 'Choose from our exclusive collection of templates and we will customize it with your photos and details.',
+    icon: <Paintbrush size={72} strokeWidth={1} />,
+    title: 'Graphic Design',
+    description: 'Bringing your brand to life with custom graphics, logos, and marketing materials that capture your unique identity.',
   },
   {
-    icon: <ShoppingBag className="w-10 h-10 text-gold-accent" />,
-    title: 'Digital Marketplace',
-    description: 'Purchase premium PSD album templates and Lightroom presets to elevate your own creative projects.',
+    icon: <ShoppingBag size={72} strokeWidth={1} />,
+    title: 'E-Commerce Solutions',
+    description: 'Building powerful and scalable online stores that drive sales and provide a seamless shopping experience for your customers.',
   },
 ];
 
-export const Services = () => (
-  <section className="py-24 bg-soft-beige">
-    <div className="container mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="font-playfair-display text-4xl font-bold text-dark-charcoal">Our Services</h2>
-        <p className="font-poppins text-md text-dark-charcoal/70 mt-4 max-w-2xl mx-auto">Offering a range of services to bring your wedding memories to life, from bespoke designs to ready-to-use digital assets.</p>
-      </div>
-      <div className="grid md:grid-cols-3 gap-12">
-        {services.map((service, index) => (
-          <div key={index} className="text-center p-8 bg-cream-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
-            <div className="flex justify-center mb-6">
-              {service.icon}
+const Services = () => {
+  return (
+    <section id="services" className="py-20 bg-cream-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-playfair-display text-center text-dark-charcoal mb-12">
+          What We Offer
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {services.map((service, index) => (
+            <div key={index} className="bg-soft-beige p-8 rounded-lg text-center shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="text-gold-accent mb-4 inline-block">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-playfair-display text-dark-charcoal mb-3">{service.title}</h3>
+              <p className="text-dark-charcoal font-poppins">{service.description}</p>
             </div>
-            <h3 className="font-playfair-display text-2xl font-semibold text-dark-charcoal mb-3">{service.title}</h3>
-            <p className="font-poppins text-sm text-dark-charcoal/70 leading-relaxed">{service.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
+export default Services;
